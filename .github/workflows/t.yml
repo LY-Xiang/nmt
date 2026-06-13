@@ -1,0 +1,10 @@
+on:
+  workflow_dispatch: 
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: mcio-dev/upload-to-nexusmc@v1.0.0
+      with:
+        api_token: ${{ secrets.NEXUSMC_API_TOKEN }}
+        resource_id: ${{ vars.NEXUSMC_RESOURCE_ID }}
