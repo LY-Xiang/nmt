@@ -1,5 +1,11 @@
 on:
   workflow_dispatch: 
+   inputs:
+      version:
+        description: '版本号'
+        required: true  
+        default: 'v0.0.1' 
+        type: string
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -8,3 +14,4 @@ jobs:
       with:
         api_token: ${{ secrets.NEXUSMC_API_TOKEN }}
         resource_id: ${{ vars.NEXUSMC_RESOURCE_ID }}
+        version: ${{ inputs.version }}
